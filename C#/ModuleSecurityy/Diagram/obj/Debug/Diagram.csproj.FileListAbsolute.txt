@@ -1,0 +1,7 @@
+D:\Datos\Descargas\C#\ModuleSecurityy\Diagram\bin\Debug\Diagram.dll.config
+D:\Datos\Descargas\C#\ModuleSecurityy\Diagram\bin\Debug\Diagram.dll
+D:\Datos\Descargas\C#\ModuleSecurityy\Diagram\bin\Debug\Diagram.pdb
+D:\Datos\Descargas\C#\ModuleSecurityy\Diagram\obj\Debug\Diagram.csproj.AssemblyReference.cache
+D:\Datos\Descargas\C#\ModuleSecurityy\Diagram\obj\Debug\Diagram.csproj.CoreCompileInputs.cache
+D:\Datos\Descargas\C#\ModuleSecurityy\Diagram\obj\Debug\Diagram.dll
+D:\Datos\Descargas\C#\ModuleSecurityy\Diagram\obj\Debug\Diagram.pdb

@@ -1,0 +1,5 @@
+D:\Datos\Descargas\C#\ModuleSecurityy\Entity\obj\Debug\net8.0\Entity.csproj.AssemblyReference.cache
+D:\Datos\Descargas\C#\ModuleSecurityy\Entity\obj\Debug\net8.0\Entity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Datos\Descargas\C#\ModuleSecurityy\Entity\obj\Debug\net8.0\Entity.AssemblyInfoInputs.cache
+D:\Datos\Descargas\C#\ModuleSecurityy\Entity\obj\Debug\net8.0\Entity.AssemblyInfo.cs
+D:\Datos\Descargas\C#\ModuleSecurityy\Entity\obj\Debug\net8.0\Entity.csproj.CoreCompileInputs.cache

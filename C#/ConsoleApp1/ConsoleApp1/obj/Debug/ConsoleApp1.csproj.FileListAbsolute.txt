@@ -1,0 +1,7 @@
+D:\Datos\Descargas\C#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+D:\Datos\Descargas\C#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+D:\Datos\Descargas\C#\ConsoleApp1\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+D:\Datos\Descargas\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.AssemblyReference.cache
+D:\Datos\Descargas\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.csproj.CoreCompileInputs.cache
+D:\Datos\Descargas\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+D:\Datos\Descargas\C#\ConsoleApp1\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
