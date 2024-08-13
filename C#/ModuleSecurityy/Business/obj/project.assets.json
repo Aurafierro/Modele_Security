@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Business\\Business.csproj",
+      "projectUniqueName": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Business\\Business.csproj",
       "projectName": "Business",
-      "projectPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Business\\Business.csproj",
+      "projectPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Business\\Business.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Business\\obj\\",
+      "outputPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",

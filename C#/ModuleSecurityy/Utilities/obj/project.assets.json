@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Utilities\\Utilities.csproj",
+      "projectUniqueName": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Utilities\\Utilities.csproj",
       "projectName": "Utilities",
-      "projectPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Utilities\\Utilities.csproj",
+      "projectPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Utilities\\Utilities.csproj",
       "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-      "outputPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Utilities\\obj\\",
+      "outputPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Utilities\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",

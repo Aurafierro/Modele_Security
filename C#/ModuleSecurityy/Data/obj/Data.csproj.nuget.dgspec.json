@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Data\\Data.csproj": {}
+    "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Data\\Data.csproj": {}
   },
   "projects": {
-    "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Data\\Data.csproj": {
+    "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Data\\Data.csproj",
+        "projectUniqueName": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Data\\Data.csproj",
+        "projectPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Data\\Data.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Data\\obj\\",
+        "outputPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -45,6 +45,32 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[8.0.7, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",

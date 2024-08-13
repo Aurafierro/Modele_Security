@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Entity\\Entity.csproj": {}
+    "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Entity\\Entity.csproj": {}
   },
   "projects": {
-    "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Entity\\Entity.csproj": {
+    "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Entity\\Entity.csproj",
+        "projectUniqueName": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Entity\\Entity.csproj",
+        "projectPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Entity\\Entity.csproj",
         "packagesPath": "C:\\Users\\ACER\\.nuget\\packages\\",
-        "outputPath": "D:\\Datos\\Descargas\\C#\\ModuleSecurityy\\Entity\\obj\\",
+        "outputPath": "D:\\Datos\\Descargas\\Modele_Security\\C#\\ModuleSecurityy\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ACER\\AppData\\Roaming\\NuGet\\NuGet.Config",
