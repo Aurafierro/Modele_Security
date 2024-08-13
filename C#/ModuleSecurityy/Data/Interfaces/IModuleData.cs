@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Data.Interfaces
 {
-    internal interface IModuleData
+    public interface IModuleData
     {
+   
     }
 }

@@ -28,7 +28,8 @@ namespace Data.Implements
                 throw new Exception("Registro no encontrado");
 
             entity.DelatedAt = DateTime.Today;
-            _context.Roles.Update(entity);
+            _context.Persons
+                .Update(entity);
             await _context.SaveChangesAsync();
         }
 
@@ -49,7 +50,8 @@ namespace Data.Implements
 
         public async Task<PersonData> Save(PersonData entity)
         {
-            _context.Roles.Add(entity);
+            _context.Persons
+                .Add(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
@@ -64,7 +66,7 @@ namespace Data.Implements
 
         public async Task<PersonData> GetByName(string name)
         {
-            return await _context.Roles.AsNoTracking().Where(item =>
+            return await _context.Persons.AsNoTracking().Where(item =>
             {
                 return item.Name
                        == name;

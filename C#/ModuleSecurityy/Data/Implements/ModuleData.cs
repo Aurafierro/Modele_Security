@@ -4,6 +4,7 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -29,7 +30,8 @@ namespace Data.Implements
                 throw new Exception("Registro no encontrado");
 
             entity.DelatedAt = DateTime.Today;
-            _context.Roles.Update(entity);
+            _context.Modules
+                .Update(entity);
             await _context.SaveChangesAsync();
         }
 
@@ -50,30 +52,50 @@ namespace Data.Implements
 
         public async Task<ModuleData> Save(ModuleData entity)
         {
-            _context.Roles.Add(entity);
+            _context.Modules.Add(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(ModuleData entity)
+        public async Task Update(Module entity)
         {
             _context.Entry(entity).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 
 
-
-        public async Task<ModuleData> GetByName(string name)
+        private static EntityState GetModified()
         {
-            return await _context.Roles.AsNoTracking().Where(item =>
-            {
-                return item.Name
-                       == name;
-            }).FirstOrDefaultAsync();
+            return EntityState.Modified;
         }
+
+        public async Task<Module> GetByDescription(string description) => await _context.Modules.AsNoTracking().Where(item => item.Description == description).FirstOrDefaultAsync();
 
         public class DataSelectDto
         {
+        }
+    }
+
+    internal class ApplicationDbContext
+    {
+        internal object Entry(ModuleData entity)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Task<IEnumerable<T>> QueryAsync<T>(string sql)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Task<T> QueryFirstOrDefaultAsync<T>(string sql, object value)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal async Task SaveChangesAsync()
+        {
+            throw new NotImplementedException();
         }
     }
 }
