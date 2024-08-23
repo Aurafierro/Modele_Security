@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Entity.Dto
+{
+    public class PersonDto
+    {
+        public string First_name { get; set; }
+
+        public string Last_name { get; set; }
+
+        public string Email { get; set; }
+
+        public string Type_document { get; set; }
+
+        public string Document { get; set; }
+
+        public DateTime Birth_of_date { get; set; }
+    }
+}

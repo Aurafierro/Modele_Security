@@ -12,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace Data.Implements
 {
-    public class PersonData : IPersonData
+    public class UserRoleData : IUserRoleData
     {
         private readonly ApplicationDBContext _context;
         private readonly IConfiguration _configuration;
 
-        public PersonData(ApplicationDBContext context, IConfiguration configuration)
+        public UserRoleData(ApplicationDBContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
@@ -32,7 +32,7 @@ namespace Data.Implements
             }
 
             entity.DelatedAt = DateTime.Now;
-            _context.Persons.Update(entity);
+            _context.UserRoles.Update(entity);
             await _context.SaveChangesAsync();
         }
 
@@ -45,32 +45,32 @@ namespace Data.Implements
             return await _context.QueryAsync<DataSelectDto>(sql);
         }
 
-        public async Task<Person> GetById(int id)
+        public async Task<UserRole> GetById(int id)
         {
 
             var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
 
 
-            return await _context.Persons
+            return await _context.UserRoles
                 .FromSqlRaw(sql, new { Id = id })
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Person> Save(Person entity)
+        public async Task<UserRole> Save(UserRole entity)
         {
-            _context.Persons.Add(entity);
+            _context.UserRoles.Add(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(Person entity, DbContext dbContext)
+        public async Task Update(UserRole entity, DbContext dbContext)
         {
             dbContext.Entry(entity).State = EntityState.Modified;
             await dbContext.SaveChangesAsync();
         }
-        public async Task<Person> GetByCode(int code)
+        public async Task<UserRole> GetByCode(int code)
         {
-            return await this._context.Persons.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
+            return await this._context.UserRoles.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
         }
 
 

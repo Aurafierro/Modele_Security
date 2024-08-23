@@ -1,23 +1,23 @@
 ﻿using Data.Interfaces;
+using Entity.Context;
+using Entity.Dto;
+using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
+
 
 namespace Data.Implements
 {
     public class RoleViewData : IRoleViewData
     {
+        private readonly ApplicationDBContext _context;
+        private readonly IConfiguration _configuration;
 
-        private readonly ApplicationDbContext _context;
-        protected readonly IConfiguration _configuration;
-
-        public DateTime DelatedAt { get; private set; }
-
-        public RoleViewData(ApplicationDbContext context, IConfiguration configuration)
+        public RoleViewData(ApplicationDBContext context, IConfiguration configuration)
         {
             _context = context;
             _configuration = configuration;
@@ -27,55 +27,53 @@ namespace Data.Implements
         {
             var entity = await GetById(id);
             if (entity == null)
+            {
                 throw new Exception("Registro no encontrado");
+            }
 
-            entity.DelatedAt = DateTime.Today;
-            _context.Roles.Update(entity);
+            entity.DelatedAt = DateTime.Now;
+            _context.RoleViews.Update(entity);
             await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
         {
             var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM Role
-                        WHERE Deleted_at IS NULL AND State = 1
+                        FROM Module
+                        WHERE DelatedAt IS NULL AND State = 1
                         ORDER BY Id ASC";
             return await _context.QueryAsync<DataSelectDto>(sql);
         }
 
-        public async Task<PersonData> GetById(int id)
+        public async Task<RoleView> GetById(int id)
         {
-            var sql = @"SELECT * FROM Role WHERE Id = @Id ORDER BY Id ASC";
-            return await _context.QueryFirstOrDefaultAsync<RoleViewData>(sql, new { Id = id });
+
+            var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
+
+
+            return await _context.RoleViews
+                .FromSqlRaw(sql, new { Id = id })
+                .FirstOrDefaultAsync();
         }
 
-        public async Task<RoleViewData> Save(RoleViewData entity)
+        public async Task<RoleView> Save(RoleView entity)
         {
-            _context.Roles.Add(entity);
+            _context.RoleViews.Add(entity);
             await _context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(RoleViewData entity)
+        public async Task Update(RoleView entity, DbContext dbContext)
         {
-            _context.Entry(entity).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
+            dbContext.Entry(entity).State = EntityState.Modified;
+            await dbContext.SaveChangesAsync();
+        }
+        public async Task<RoleView> GetByCode(int code)
+        {
+            return await this._context.RoleViews.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
         }
 
 
 
-        public async Task<RoleViewData> GetByName(string name)
-        {
-            return await _context.Roles.AsNoTracking().Where(item =>
-            {
-                return item.Name
-                       == name;
-            }).FirstOrDefaultAsync();
-        }
-
-        public class DataSelectDto
-        {
-        }
     }
 }
-

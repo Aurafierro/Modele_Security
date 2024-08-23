@@ -3,6 +3,7 @@ using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
+using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -61,6 +62,11 @@ namespace Entity.Context
         private void EnsureAudit()
         {
             ChangeTracker.DetectChanges();
+        }
+
+        public Task<T> QueryFirstOrDefaultAsync<T>(string sql, object value)
+        {
+            throw new NotImplementedException();
         }
 
         //security
