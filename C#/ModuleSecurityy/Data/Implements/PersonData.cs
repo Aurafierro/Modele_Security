@@ -14,66 +14,81 @@ namespace Data.Implements
 {
     public class PersonData : IPersonData
     {
-        private readonly ApplicationDBContext _context;
-        private readonly IConfiguration _configuration;
+
+        private readonly ApplicationDBContext context;
+        protected readonly IConfiguration configuration;
+
 
         public PersonData(ApplicationDBContext context, IConfiguration configuration)
         {
-            _context = context;
-            _configuration = configuration;
+            this.context = context;
+            this.configuration = configuration;
+        }
+        public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
+
+        {
+            var sql = @"SELECT
+                Id,
+                CONCAT(FirstName, ' -', LastName, ' -', Email, ' -' ,
+                        Address,' -' ,TypeDocument,' -' ,Document,' -' ,
+                        BirthOfDate,' -' ,Phone )
+                FROM
+                Person
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
+            return await context.QueryAsync<DataSelectDto>(sql);
+        }
+        public async Task<IEnumerable<Person>> GetAll()
+
+        {
+            var sql = @"SELECT
+                *
+                FROM
+                Person
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
+            return await context.QueryAsync<Person>(sql);
         }
 
-        public async Task Delete(int id)
+        public async Task Delete(int Id)
         {
-            var entity = await GetById(id);
+            var entity = await GetById(Id);
             if (entity == null)
             {
-                throw new Exception("Registro no encontrado");
+                throw new Exception("Registro NO encontrado");
             }
-
-            entity.DelatedAt = DateTime.Now;
-            _context.Persons.Update(entity);
-            await _context.SaveChangesAsync();
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.Persons.Update(entity);
+            await context.SaveChangesAsync();
         }
-
-        public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
-        {
-            var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM Module
-                        WHERE DelatedAt IS NULL AND State = 1
-                        ORDER BY Id ASC";
-            return await _context.QueryAsync<DataSelectDto>(sql);
-        }
-
         public async Task<Person> GetById(int id)
         {
-
-            var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
-
-
-            return await _context.Persons
-                .FromSqlRaw(sql, new { Id = id })
-                .FirstOrDefaultAsync();
+            var sql = @"SELECT * FROM Person WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<Person>(sql, new
+            {
+                Id = id
+            });
         }
 
         public async Task<Person> Save(Person entity)
+
         {
-            _context.Persons.Add(entity);
-            await _context.SaveChangesAsync();
+            context.Persons.Add(entity);
+            await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(Person entity, DbContext dbContext)
+
+        public async Task Update(Person entity)
         {
-            dbContext.Entry(entity).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
-        }
-        public async Task<Person> GetByCode(int code)
-        {
-            return await this._context.Persons.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
+
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
-
-
+        Task<Person> IPersonData.Update(Person entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

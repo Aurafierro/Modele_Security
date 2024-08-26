@@ -1,4 +1,5 @@
 ﻿using Entity.Dto;
+using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,11 +11,11 @@ namespace Data.Interfaces
 {
     public interface IModuleData
     {
-        Task Delete(int id);
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
-        Task<Module> GetById(int id);
-        Task<Module> Save(Module entity);
-        Task Update(Module entity);
-        Task<Module> GetByCode(int code);
+        Task<IEnumerable<Entity.Model.Security.Module>> GetAll();
+        Task Delete(int id);
+        Task<Entity.Model.Security.Module> GetById(int id);
+        Task<Entity.Model.Security.Module> Save(Entity.Model.Security.Module entity);
+        Task<Entity.Model.Security.Module> Update(Entity.Model.Security.Module entity);
     }
 }

@@ -1,0 +1,8 @@
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\ModuleSecurityy.AppHost.csproj.AssemblyReference.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\ModuleSecurityy.AppHost.GeneratedMSBuildEditorConfig.editorconfig
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\ModuleSecurityy.AppHost.AssemblyInfoInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\ModuleSecurityy.AppHost.AssemblyInfo.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\ModuleSecurityy.AppHost.csproj.CoreCompileInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\Aspire\references\.ProjectMetadata.g.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\Aspire\references\_AppHost.ProjectMetadata.g.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.AppHost\obj\Debug\net8.0\ModuleSecurityy.AppHost.sourcelink.json

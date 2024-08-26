@@ -1,72 +1,83 @@
-﻿using Business.Interfaces;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Reflection.Metadata;
-using System.Text;
-using System.Threading.Tasks;
+﻿
+using Business.Interfaces;
+using Data.Interfaces;
+using Entity.Dto;
+using Entity.Model.Security;
 
-namespace Business.implements
+namespace Business.Implements
 {
-    public class viewBusiness : IViewBusiness
+    public class ViewBusiness : IViewBusiness
     {
         protected readonly IViewData data;
-
-        public viewBusiness(IViewData data)
+        public ViewBusiness(IViewData data)
         {
             this.data = data;
         }
-
-        public async Task Delete (int id)
+        public async Task Delete(int id)
         {
             await this.data.Delete(id);
         }
         public async Task<IEnumerable<ViewDto>> GetAll()
         {
             IEnumerable<View> views = await this.data.GetAll();
-            var viewDto = views.Select(view => new ViewDto
+            var viewDtos = views.Select(view => new ViewDto
             {
                 Id = view.Id,
                 Name = view.Name,
-                Description= view.Description,
-                Route = view.Route,
-                ModuloId= view.ModuloId,
-                ApartmentState= view.State,
+                Description = view.Description,
+
 
             });
-            return viewDto;
+            return viewDtos;
         }
-    }
 
+        public Task<View> GetById(int id)
+        {
+            throw new NotImplementedException();
+        }
 
-    public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
-    {
-        return await this.data.GetAllSelect();
-    }
-    public async Task <ViewDto>GetById(int id)
-    {
-        viewBusiness view = await this.data.GetById(id);
-        ViewDto = new ViewDto();
+        public View MappingData(View view, ViewDto entity)
+        {
+            view.Id = entity.Id;
+            view.Name = entity.Name;
+            view.Description = entity.Description;
 
+            return view;
+        }
+        public async Task<View> Save(ViewDto entity)
+        {
+            View view = new View();
+            view.CreateAt = DateTime.Now.AddHours(-5);
+            view = this.MappingData(view, entity);
+            view.Module_id = null;
 
-        ViewDto.Id = view.Id;
-        ViewDto.Name = entity.Name;
+            return await this.data.Save(view);
+        }
 
-        ViewDto.Description = entity.Description;
-        ViewDto.Route = entity.Route;
-        ViewDto.ModuloId = view.State;
-        return viewDto;
+        public Task<View> Save(View view)
+        {
+            throw new NotImplementedException();
+        }
 
-    }
-    public Vire mapear(View view, ViewDto entity)
-    {
-        view.Id = entity.Id;
-        view.Name = entity.Name;
-        view.Description = entity.Description;
-        view.Route = entity.Route;
-        view.ModuloId = entity.State;
-        return view;
+        public async Task Update(ViewDto entity)
+        {
+            View view = await this.data.GetById(entity.Id);
+            if (view == null)
+            {
+                throw new Exception("Registro no encontrado");
+            }
+            view = this.MappingData(view, entity);
+            await this.data.Update(view);
+        }
+
+        public Task Update(View view)
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<View>> IViewBusiness.GetAll()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

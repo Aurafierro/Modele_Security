@@ -1,0 +1,13 @@
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\bin\Debug\net8.0\ModuleSecurityy.ServiceDefaults.deps.json
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\bin\Debug\net8.0\ModuleSecurityy.ServiceDefaults.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\bin\Debug\net8.0\ModuleSecurityy.ServiceDefaults.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.csproj.AssemblyReference.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.GeneratedMSBuildEditorConfig.editorconfig
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.AssemblyInfoInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.AssemblyInfo.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.csproj.CoreCompileInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.sourcelink.json
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\refint\ModuleSecurityy.ServiceDefaults.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ModuleSecurityy.ServiceDefaults.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\ModuleSecurityy.ServiceDefaults\obj\Debug\net8.0\ref\ModuleSecurityy.ServiceDefaults.dll

@@ -14,66 +14,75 @@ namespace Data.Implements
 {
     public class UserRoleData : IUserRoleData
     {
-        private readonly ApplicationDBContext _context;
-        private readonly IConfiguration _configuration;
+        private readonly ApplicationDBContext context;
+        private readonly IConfiguration configuration;
 
         public UserRoleData(ApplicationDBContext context, IConfiguration configuration)
         {
-            _context = context;
-            _configuration = configuration;
+            this.context = context;
+            this.configuration = configuration;
         }
-
-        public async Task Delete(int id)
-        {
-            var entity = await GetById(id);
-            if (entity == null)
-            {
-                throw new Exception("Registro no encontrado");
-            }
-
-            entity.DelatedAt = DateTime.Now;
-            _context.UserRoles.Update(entity);
-            await _context.SaveChangesAsync();
-        }
-
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
+
         {
             var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM Module
+                        FROM UserRole
                         WHERE DelatedAt IS NULL AND State = 1
                         ORDER BY Id ASC";
-            return await _context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
+        }
+        public async Task<IEnumerable<UserRole>> GetAll()
+
+        {
+            var sql = @"SELECT
+                *
+                FROM
+                UserRole
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
+            return await context.QueryAsync<UserRole>(sql);
         }
 
+        public async Task Delete(int Id)
+        {
+            var entity = await GetById(Id);
+            if (entity == null)
+            {
+                throw new Exception("Registro NO encontrado");
+            }
+            entity.DelatedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.UserRoles.Update(entity);
+            await context.SaveChangesAsync();
+        }
         public async Task<UserRole> GetById(int id)
         {
-
-            var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
-
-
-            return await _context.UserRoles
-                .FromSqlRaw(sql, new { Id = id })
-                .FirstOrDefaultAsync();
+            var sql = @"SELECT * FROM UserRole WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<UserRole>(sql, new
+            {
+                Id = id
+            });
         }
 
         public async Task<UserRole> Save(UserRole entity)
+
         {
-            _context.UserRoles.Add(entity);
-            await _context.SaveChangesAsync();
+            context.UserRoles.Add(entity);
+            await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(UserRole entity, DbContext dbContext)
+
+        public async Task Update(UserRole entity)
         {
-            dbContext.Entry(entity).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
-        }
-        public async Task<UserRole> GetByCode(int code)
-        {
-            return await this._context.UserRoles.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
+
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
-
+        Task<UserRole> IUserRoleData.Update(UserRole entity)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

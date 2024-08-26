@@ -5,77 +5,82 @@ using Entity.Model.Security;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace Data.Implements
 {
     public class ModuleData : IModuleData
     {
-        private readonly ApplicationDBContext _context;
-        private readonly IConfiguration _configuration;
-        private object dbContext;
+
+        private readonly ApplicationDBContext context;
+        protected readonly IConfiguration configuration;
+
 
         public ModuleData(ApplicationDBContext context, IConfiguration configuration)
         {
-            _context = context;
-            _configuration = configuration;
+            this.context = context;
+            this.configuration = configuration;
         }
-
-        public async Task Delete(int id)
-        {
-            var entity = await GetById(id);
-            if (entity == null)
-            {
-                throw new Exception("Registro no encontrado");
-            }
-
-            entity.DelatedAt = DateTime.Now; 
-            _context.Modules.Update(entity);
-            await _context.SaveChangesAsync();
-        }
-
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
+
         {
             var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
                         FROM Module
                         WHERE DelatedAt IS NULL AND State = 1
                         ORDER BY Id ASC";
-            return await _context.QueryAsync<DataSelectDto>(sql); 
+            return await context.QueryAsync<DataSelectDto>(sql);
+        }
+        public async Task<IEnumerable<Module>> GetAll()
+
+        {
+            var sql = @"SELECT
+                *
+                FROM
+                Person
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
+            return await context.QueryAsync<Module>(sql);
         }
 
-
-        public async Task<Entity.Model.Security.Module> GetById(int id)
+        public async Task Delete(int Id)
         {
-       
-            var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
-
-           
-            return await _context.Modules
-                .FromSqlRaw(sql, new { Id = id }) 
-                .FirstOrDefaultAsync(); 
+            var entity = await GetById(Id);
+            if (entity == null)
+            {
+                throw new Exception("Registro NO encontrado");
+            }
+            entity.DeletedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.Modules.Update(entity);
+            await context.SaveChangesAsync();
+        }
+        public async Task<Module> GetById(int id)
+        {
+            var sql = @"SELECT * FROM Person WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<Module>(sql, new
+            {
+                Id = id
+            });
         }
 
-        public async Task<Entity.Model.Security.Module> Save(Entity.Model.Security.Module entity)
+        public async Task<Module> Save(Module entity)
+
         {
-            _context.Modules.Add(entity);
-            await _context.SaveChangesAsync();
+            context.Modules.Add(entity);
+            await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(Entity.Model.Security.Module entity, DbContext dbContext)
+
+        public async Task Update(Person entity)
         {
-            dbContext.Entry(entity).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
-        }
-        public async Task<Entity.Model.Security.Module> GetByCode(int code)
-        {
-            return await this._context.Modules.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
+
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
-      
-      
+        Task<Module> IModuleData.Update(Module entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

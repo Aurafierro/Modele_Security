@@ -1,0 +1,8 @@
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.csproj.AssemblyReference.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.GeneratedMSBuildEditorConfig.editorconfig
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.AssemblyInfoInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.AssemblyInfo.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.csproj.CoreCompileInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.MvcApplicationPartsAssemblyInfo.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.MvcApplicationPartsAssemblyInfo.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Web\obj\Debug\net8.0\Web.sourcelink.json

@@ -9,3 +9,12 @@ D:\Datos\Descargas\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.dll
 D:\Datos\Descargas\C#\ModuleSecurityy\Business\obj\Debug\net8.0\refint\Business.dll
 D:\Datos\Descargas\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.pdb
 D:\Datos\Descargas\C#\ModuleSecurityy\Business\obj\Debug\net8.0\ref\Business.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.csproj.AssemblyReference.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.AssemblyInfoInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.AssemblyInfo.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.csproj.CoreCompileInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.sourcelink.json
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\refint\Business.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.pdb

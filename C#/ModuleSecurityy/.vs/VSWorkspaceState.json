@@ -1,13 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Data",
-    "\\Data\\Implements",
-    "\\Data\\Interfaces",
-    "\\Entity",
-    "\\Entity\\Context",
-    "\\Entity\\Model",
-    "\\Entity\\Model\\Security"
+    "\\Business",
+    "\\Business\\implements"
   ],
   "SelectedNode": "\\ModuleSecurityy.sln",
   "PreviewInSolutionExplorer": false

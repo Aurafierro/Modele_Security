@@ -14,66 +14,75 @@ namespace Data.Implements
 {
     public class ViewData : IViewData
     {
-        private readonly ApplicationDBContext _context;
-        private readonly IConfiguration _configuration;
+        private readonly ApplicationDBContext context;
+        private readonly IConfiguration configuration;
 
         public ViewData(ApplicationDBContext context, IConfiguration configuration)
         {
-            _context = context;
-            _configuration = configuration;
+            this.context = context;
+            this.configuration = configuration;
         }
-
-        public async Task Delete(int id)
-        {
-            var entity = await GetById(id);
-            if (entity == null)
-            {
-                throw new Exception("Registro no encontrado");
-            }
-
-            entity.DelatedAt = DateTime.Now;
-            _context.Views.Update(entity);
-            await _context.SaveChangesAsync();
-        }
-
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
+
         {
             var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM Module
+                        FROM View
                         WHERE DelatedAt IS NULL AND State = 1
                         ORDER BY Id ASC";
-            return await _context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
+        }
+        public async Task<IEnumerable<View>> GetAll()
+
+        {
+            var sql = @"SELECT
+                *
+                FROM
+                View
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
+            return await context.QueryAsync<View>(sql);
         }
 
+        public async Task Delete(int Id)
+        {
+            var entity = await GetById(Id);
+            if (entity == null)
+            {
+                throw new Exception("Registro NO encontrado");
+            }
+            entity.DelatedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.Views.Update(entity);
+            await context.SaveChangesAsync();
+        }
         public async Task<View> GetById(int id)
         {
-
-            var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
-
-
-            return await _context.Views
-                .FromSqlRaw(sql, new { Id = id })
-                .FirstOrDefaultAsync();
+            var sql = @"SELECT * FROM View WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<View>(sql, new
+            {
+                Id = id
+            });
         }
 
         public async Task<View> Save(View entity)
+
         {
-            _context.Views.Add(entity);
-            await _context.SaveChangesAsync();
+            context.Views.Add(entity);
+            await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(View entity, DbContext dbContext)
+
+        public async Task Update(View entity)
         {
-            dbContext.Entry(entity).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
-        }
-        public async Task<View> GetByCode(int code)
-        {
-            return await this._context.Views.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
+
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
-
+        Task<View> IViewData.Update(View entity)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

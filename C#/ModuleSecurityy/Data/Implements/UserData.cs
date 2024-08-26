@@ -14,66 +14,78 @@ namespace Data.Implements
 {
     public class UserData : IUserData 
     {
-        private readonly ApplicationDBContext _context;
-        private readonly IConfiguration _configuration;
+      
+
+        private readonly ApplicationDBContext context;
+        protected readonly IConfiguration configuration;
+
 
         public UserData(ApplicationDBContext context, IConfiguration configuration)
         {
-            _context = context;
-            _configuration = configuration;
+            this.context = context;
+            this.configuration = configuration;
         }
-
-        public async Task Delete(int id)
-        {
-            var entity = await GetById(id);
-            if (entity == null)
-            {
-                throw new Exception("Registro no encontrado");
-            }
-
-            entity.DelatedAt = DateTime.Now;
-            _context.Users.Update(entity);
-            await _context.SaveChangesAsync();
-        }
-
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
+
         {
             var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM Module
+                        FROM User
                         WHERE DelatedAt IS NULL AND State = 1
                         ORDER BY Id ASC";
-            return await _context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
+        }
+        public async Task<IEnumerable<User>> GetAll()
+
+        {
+            var sql = @"SELECT
+                *
+                FROM
+                User
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
+            return await context.QueryAsync<User>(sql);
         }
 
+        public async Task Delete(int Id)
+        {
+            var entity = await GetById(Id);
+            if (entity == null)
+            {
+                throw new Exception("Registro NO encontrado");
+            }
+            entity.DelatedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.Users.Update(entity);
+            await context.SaveChangesAsync();
+        }
         public async Task<User> GetById(int id)
         {
-
-            var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
-
-
-            return await _context.Users
-                .FromSqlRaw(sql, new { Id = id })
-                .FirstOrDefaultAsync();
+            var sql = @"SELECT * FROM User WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<User>(sql, new
+            {
+                Id = id
+            });
         }
 
         public async Task<User> Save(User entity)
+
         {
-            _context.Users.Add(entity);
-            await _context.SaveChangesAsync();
+            context.Users.Add(entity);
+            await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(User entity, DbContext dbContext)
+
+        public async Task Update(User entity)
         {
-            dbContext.Entry(entity).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
-        }
-        public async Task<User> GetByCode(int code)
-        {
-            return await this._context.Users.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
+
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
-
+        Task<User> IUserData.Update(User entity)
+        {
+            throw new NotImplementedException();
+        }
 
     }
 }

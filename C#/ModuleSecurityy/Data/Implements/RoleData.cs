@@ -14,66 +14,76 @@ namespace Data.Implements
 {
     public class RoleData : IRoleData
     {
-        private readonly ApplicationDBContext _context;
-        private readonly IConfiguration _configuration;
+
+        private readonly ApplicationDBContext context;
+        protected readonly IConfiguration configuration;
+
 
         public RoleData(ApplicationDBContext context, IConfiguration configuration)
         {
-            _context = context;
-            _configuration = configuration;
+            this.context = context;
+            this.configuration = configuration;
         }
-
-        public async Task Delete(int id)
-        {
-            var entity = await GetById(id);
-            if (entity == null)
-            {
-                throw new Exception("Registro no encontrado");
-            }
-
-            entity.DelatedAt = DateTime.Now;
-            _context.Roles.Update(entity);
-            await _context.SaveChangesAsync();
-        }
-
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
+
         {
             var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM Module
+                        FROM Role
                         WHERE DelatedAt IS NULL AND State = 1
                         ORDER BY Id ASC";
-            return await _context.QueryAsync<DataSelectDto>(sql);
+            return await context.QueryAsync<DataSelectDto>(sql);
+        }
+        public async Task<IEnumerable<Role>> GetAll()
+
+        {
+            var sql = @"SELECT
+                *
+                FROM
+                Module
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
+            return await context.QueryAsync<Role>(sql);
         }
 
+        public async Task Delete(int Id)
+        {
+            var entity = await GetById(Id);
+            if (entity == null)
+            {
+                throw new Exception("Registro NO encontrado");
+            }
+            entity.DelatedAt = DateTime.Parse(DateTime.Today.ToString());
+            context.Roles.Update(entity);
+            await context.SaveChangesAsync();
+        }
         public async Task<Role> GetById(int id)
         {
-
-            var sql = @"SELECT * FROM parametro.Module WHERE Id = @Id ORDER BY Id ASC";
-
-
-            return await _context.Roles
-                .FromSqlRaw(sql, new { Id = id })
-                .FirstOrDefaultAsync();
+            var sql = @"SELECT * FROM Role WHERE Id = @Id ORDER BY Id ASC";
+            return await this.context.QueryFirstOrDefaultAsync<Role>(sql, new
+            {
+                Id = id
+            });
         }
 
         public async Task<Role> Save(Role entity)
+
         {
-            _context.Roles.Add(entity);
-            await _context.SaveChangesAsync();
+            context.Roles.Add(entity);
+            await context.SaveChangesAsync();
             return entity;
         }
 
-        public async Task Update(Role entity, DbContext dbContext)
+
+        public async Task Update(Role entity)
         {
-            dbContext.Entry(entity).State = EntityState.Modified;
-            await dbContext.SaveChangesAsync();
-        }
-        public async Task<Role> GetByCode(int code)
-        {
-            return await this._context.Roles.AsNoTracking().FirstOrDefaultAsync(item => item.Id == code);
+
+            context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;
+            await context.SaveChangesAsync();
         }
 
-
-
+        Task<Role> IRoleData.Update(Role entity)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -9,3 +9,15 @@ D:\Datos\Descargas\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.dll
 D:\Datos\Descargas\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\refint\Utilities.dll
 D:\Datos\Descargas\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.pdb
 D:\Datos\Descargas\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\ref\Utilities.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\bin\Debug\net8.0\Utilities.deps.json
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\bin\Debug\net8.0\Utilities.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\bin\Debug\net8.0\Utilities.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.GeneratedMSBuildEditorConfig.editorconfig
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.AssemblyInfoInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.AssemblyInfo.cs
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.csproj.CoreCompileInputs.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.sourcelink.json
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\refint\Utilities.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\Utilities.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Utilities\obj\Debug\net8.0\ref\Utilities.dll
