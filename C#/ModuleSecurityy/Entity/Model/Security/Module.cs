@@ -20,5 +20,6 @@ namespace Entity.Model.Security
 
         public Boolean State { get; set; }
         public DateTime DeletedAt { get; set; }
+        public object Module_id { get; set; }
     }
 }

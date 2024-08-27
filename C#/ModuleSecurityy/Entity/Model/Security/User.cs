@@ -8,6 +8,8 @@ namespace Entity.Model.Security
 {
     public class User
     {
+        public object user_id;
+
         public int Id { get; set; }
 
         public string Username { get; set; }

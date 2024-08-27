@@ -8,6 +8,8 @@ namespace Entity.Model.Security
 {
     public class RoleView
     {
+        public object roleView_id;
+
         public int Id { get; set; }
         public DateTime CreateAt { get; set; }
 

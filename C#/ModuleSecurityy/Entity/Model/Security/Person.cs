@@ -31,6 +31,7 @@ namespace Entity.Model.Security
 
         public Boolean State { get; set; }
         public DateTime DeletedAt { get; set; }
+        public object person_id { get; set; }
     }
        
     

@@ -8,6 +8,8 @@ namespace Entity.Model.Security
 {
     public class Role
     {
+        public object role_id;
+
         public int Id { get; set; }
         public string Name { get; set; }
 

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Data.Interfaces
 {
-    internal interface IUserData
+    public interface IUserData
     {
         Task<IEnumerable<DataSelectDto>> GetAllSelect();
         Task<IEnumerable<User>> GetAll();

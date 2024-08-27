@@ -9,6 +9,7 @@ namespace Entity.Dto
 {
     public class UserRoleDto
     {
+        public int Id { get; set; }
         public Boolean State { get; set; }
 
         public User User_id { get; set; }

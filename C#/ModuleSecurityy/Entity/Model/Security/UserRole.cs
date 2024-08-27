@@ -25,6 +25,6 @@ namespace Entity.Model.Security
         public User User_id { get; set; }
 
         public Role Role_id { get; set; }
-
+        public object userrole_id { get; set; }
     }
 }
