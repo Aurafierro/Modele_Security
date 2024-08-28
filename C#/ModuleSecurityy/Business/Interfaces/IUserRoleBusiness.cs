@@ -1,4 +1,5 @@
-﻿using Entity.Model.Security;
+﻿using Entity.Dto;
+using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,12 @@ using System.Threading.Tasks;
 
 namespace Business.Interfaces
 {
-    internal interface IUserRoleBusiness
+    public interface IUserRoleBusiness
     {
-        Task<IEnumerable<UserRole>> GetAll();
+        Task Delete(int id);
+        Task<IEnumerable<UserRoleDto>> GetAll();
+        Task<UserRole> GetById(int id);
+        Task<UserRole> Save(UserRoleDto entity);
+        Task Update(UserRoleDto entity);
     }
 }

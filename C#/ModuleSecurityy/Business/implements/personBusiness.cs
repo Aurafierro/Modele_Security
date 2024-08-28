@@ -84,7 +84,7 @@ namespace Business.implements
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<Person>> IPersonBusiness.GetAll()
+        Task<IEnumerable<PersonDto>> IPersonBusiness.GetAll()
         {
             throw new NotImplementedException();
         }

@@ -83,7 +83,7 @@ namespace Business.implements
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<UserRole>> IUserRoleBusiness.GetAll()
+        Task<IEnumerable<UserRoleDto>> IUserRoleBusiness.GetAll()
         {
             throw new NotImplementedException();
         }

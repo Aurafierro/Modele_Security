@@ -75,7 +75,7 @@ namespace Business.Implements
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<View>> IViewBusiness.GetAll()
+        Task<IEnumerable<ViewDto>> IViewBusiness.GetAll()
         {
             throw new NotImplementedException();
         }

@@ -1,4 +1,5 @@
-﻿using Entity.Model.Security;
+﻿using Entity.Dto;
+using Entity.Model.Security;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,10 @@ namespace Business.Interfaces
 {
     public interface IPersonBusiness
     {
-        Task<IEnumerable<Person>> GetAll();
+        Task Delete(int id);
+        Task<IEnumerable<PersonDto>> GetAll();
+        Task<Person> GetById(int id);
+        Task<Person> Save(PersonDto entity);
+        Task Update(PersonDto entity);
     }
 }

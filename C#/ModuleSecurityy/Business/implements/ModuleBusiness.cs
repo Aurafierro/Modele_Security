@@ -80,7 +80,7 @@ namespace Business.implements
             throw new NotImplementedException();
         }
 
-        Task<IEnumerable<Module>> IModuleBusiness.GetAll()
+        Task<IEnumerable<ModuleDto>> IModuleBusiness.GetAll()
         {
             throw new NotImplementedException();
         }
