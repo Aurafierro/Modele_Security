@@ -11,7 +11,7 @@ namespace Web.Controllers.Implements
     {
         private readonly IRoleBusiness _roleBusiness;
 
-        public RoleController (IRoleBusiness roleBusiness)
+        public RoleController(IRoleBusiness roleBusiness)
         {
             _roleBusiness = roleBusiness;
         }
@@ -35,26 +35,26 @@ namespace Web.Controllers.Implements
         }
 
         [HttpPost]
-        public async Task<ActionResult<Role>> Save([FromBody] RoleDto entity)
+        public async Task<ActionResult<Role>> Save([FromBody] RoleDto roleDto)
         {
-            if (entity == null)
+            if (roleDto == null)
             {
                 return BadRequest("Entity is null");
             }
 
-            var result = await _roleBusiness.Save(entity);
+            var result = await _roleBusiness.Save(roleDto);
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromBody] RoleDto entity)
+        public async Task<IActionResult> Update([FromBody] RoleDto roleDto)
         {
-            if (entity == null || entity.Id == 0)
+            if (roleDto == null || roleDto.Id == 0)
             {
                 return BadRequest();
             }
 
-            await _roleBusiness.Update(entity);
+            await _roleBusiness.Update(roleDto);
             return NoContent();
         }
 

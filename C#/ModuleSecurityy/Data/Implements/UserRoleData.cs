@@ -25,10 +25,13 @@ namespace Data.Implements
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
 
         {
-            var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM UserRole
-                        WHERE DelatedAt IS NULL AND State = 1
-                        ORDER BY Id ASC";
+            var sql = @"SELECT
+            Id,
+            CONCAT(PersonId, ' -', Person)
+            FROM
+            UserRole
+            WHERE Deleted_at IS NULL AND State = 1
+            ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
         }
         public async Task<IEnumerable<UserRole>> GetAll()

@@ -37,26 +37,26 @@ namespace Web.Controllers.Implements
         }
 
         [HttpPost]
-        public async Task<ActionResult<UserRoleDto>> Save([FromBody] UserRoleDto entity)
+        public async Task<ActionResult<UserRoleDto>> Save([FromBody] UserRoleDto userRoleDto)
         {
-            if (entity == null)
+            if (userRoleDto == null)
             {
                 return BadRequest("Entity is null");
             }
 
-            var result = await _userRoleBusiness.Save(entity);
+            var result = await _userRoleBusiness.Save(userRoleDto);
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromBody] UserRoleDto entity)
+        public async Task<IActionResult> Update([FromBody] UserRoleDto userRoleDto)
         {
-            if (entity == null || entity.Id == 0)
+            if (userRoleDto == null || userRoleDto.Id == 0)
             {
                 return BadRequest();
             }
 
-            await _userRoleBusiness.Update(entity);
+            await _userRoleBusiness.Update(userRoleDto);
             return NoContent();
         }
 

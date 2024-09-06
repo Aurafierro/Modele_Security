@@ -85,7 +85,11 @@ namespace Entity.Context
         public DbSet<Model.Security.Module> Modules => Set<Model.Security.Module>();
 
 
+        public DbSet<City> Citys => Set<City>();
 
+        public DbSet<State> States => Set<State>();
+
+        public DbSet<Countries> contries => Set<Countries>();
 
 
 

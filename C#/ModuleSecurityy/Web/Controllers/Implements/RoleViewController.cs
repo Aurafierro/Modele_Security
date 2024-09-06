@@ -1,4 +1,5 @@
 ﻿using Business.Interfaces;
+using Data.Implements;
 using Entity.Dto;
 using Entity.Model.Security;
 using Microsoft.AspNetCore.Mvc;
@@ -36,26 +37,26 @@ namespace Web.Controllers.Implements
         }
 
         [HttpPost]
-        public async Task<ActionResult<RoleView>> Save([FromBody] RoleViewDto entity)
+        public async Task<ActionResult<RoleView>> Save([FromBody] RoleViewDto roleViewDto)
         {
-            if (entity == null)
+            if (roleViewDto == null)
             {
                 return BadRequest("Entity is null");
             }
 
-            var result = await _roleviewBusiness.Save(entity);
+            var result = await _roleviewBusiness.Save(roleViewDto);
             return CreatedAtAction(nameof(GetById), new { id = result.Id }, result);
         }
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update([FromBody] RoleViewDto entity)
+        public async Task<IActionResult> Update([FromBody] RoleViewDto roleViewDto)
         {
-            if (entity == null || entity.Id == 0)
+            if (roleViewDto == null || roleViewDto.Id == 0)
             {
                 return BadRequest();
             }
 
-            await _roleviewBusiness.Update(entity);
+            await _roleviewBusiness.Update(roleViewDto);
             return NoContent();
         }
 

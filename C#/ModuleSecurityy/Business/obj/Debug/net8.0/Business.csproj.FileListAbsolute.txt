@@ -18,3 +18,14 @@ D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\
 D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.dll
 D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\refint\Business.dll
 D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Business.deps.json
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Business.runtimeconfig.json
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Business.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Business.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Data.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Entity.dll
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Data.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\bin\Debug\net8.0\Entity.pdb
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.csproj.Up2Date
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\Business.genruntimeconfig.cache
+D:\Datos\Descargas\Modele_Security\C#\ModuleSecurityy\Business\obj\Debug\net8.0\ref\Business.dll

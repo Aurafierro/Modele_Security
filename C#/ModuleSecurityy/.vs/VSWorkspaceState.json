@@ -5,10 +5,10 @@
     "\\Business\\implements",
     "\\Data",
     "\\Data\\Interfaces",
+    "\\Entity",
+    "\\Entity\\Context",
     "\\Web",
-    "\\Web\\Controllers",
-    "\\Web\\Controllers\\Implements"
+    "\\Web\\Controllers"
   ],
-  "SelectedNode": "\\ModuleSecurityy.sln",
   "PreviewInSolutionExplorer": false
 }

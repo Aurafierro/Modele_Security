@@ -24,10 +24,13 @@ namespace Data.Implements
         public async Task<IEnumerable<DataSelectDto>> GetAllSelect()
 
         {
-            var sql = @"SELECT Id, CONCAT(Name, ' - ', Description) AS TextoMostrar
-                        FROM Module
-                        WHERE DelatedAt IS NULL AND State = 1
-                        ORDER BY Id ASC";
+            var sql = @"SELECT
+                Id,
+                Description
+                FROM
+                Module
+                WHERE Deleted_at IS NULL AND State = 1
+                ORDER BY Id ASC";
             return await context.QueryAsync<DataSelectDto>(sql);
         }
         public async Task<IEnumerable<Module>> GetAll()
@@ -36,7 +39,7 @@ namespace Data.Implements
             var sql = @"SELECT
                 *
                 FROM
-                Person
+                Module
                 WHERE Deleted_at IS NULL AND State = 1
                 ORDER BY Id ASC";
             return await context.QueryAsync<Module>(sql);
@@ -55,7 +58,7 @@ namespace Data.Implements
         }
         public async Task<Module> GetById(int id)
         {
-            var sql = @"SELECT * FROM Person WHERE Id = @Id ORDER BY Id ASC";
+            var sql = @"SELECT * FROM Module WHERE Id = @Id ORDER BY Id ASC";
             return await this.context.QueryFirstOrDefaultAsync<Module>(sql, new
             {
                 Id = id
@@ -71,7 +74,7 @@ namespace Data.Implements
         }
 
 
-        public async Task Update(Person entity)
+        public async Task Update(Module entity)
         {
 
             context.Entry(entity).State = Microsoft.EntityFrameworkCore.EntityState.Modified;

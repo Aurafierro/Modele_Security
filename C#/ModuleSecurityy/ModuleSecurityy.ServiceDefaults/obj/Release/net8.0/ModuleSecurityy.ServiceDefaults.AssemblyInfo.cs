@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ModuleSecurityy.ServiceDefaults")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+764aa81d7ed8f5fab4e726ae36b8d63ee26ba8e8")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+493694019be8b2482df725796ad99f227025f2b9")]
 [assembly: System.Reflection.AssemblyProductAttribute("ModuleSecurityy.ServiceDefaults")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ModuleSecurityy.ServiceDefaults")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

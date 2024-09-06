@@ -44,6 +44,21 @@
             <End Role="View" EntitySet="ViewSet" />
             <End Role="Module" EntitySet="ModuleSet" />
           </AssociationSet>
+          <EntitySet Name="CitySet" EntityType="DbModele.City" />
+          <AssociationSet Name="CityPerson" Association="DbModele.CityPerson">
+            <End Role="City" EntitySet="CitySet" />
+            <End Role="Person" EntitySet="PersonSet" />
+          </AssociationSet>
+          <EntitySet Name="StateSet" EntityType="DbModele.State" />
+          <AssociationSet Name="StateCity" Association="DbModele.StateCity">
+            <End Role="State" EntitySet="StateSet" />
+            <End Role="City" EntitySet="CitySet" />
+          </AssociationSet>
+          <EntitySet Name="CountriesSet" EntityType="DbModele.Countries" />
+          <AssociationSet Name="CountriesState" Association="DbModele.CountriesState">
+            <End Role="Countries" EntitySet="CountriesSet" />
+            <End Role="State" EntitySet="StateSet" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Person">
           <Key>
@@ -61,6 +76,7 @@
           <Property Name="UpdateAt" Nullable="false" Type="DateTime" />
           <Property Name="DeleteAt" Nullable="false" Type="DateTime" />
           <Property Name="State" Nullable="false" Type="Boolean" />
+          <NavigationProperty Name="City_id" Relationship="DbModele.CityPerson" FromRole="Person" ToRole="City" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -168,6 +184,78 @@
         <Association Name="ViewModule">
           <End Type="DbModele.View" Role="View" Multiplicity="*" />
           <End Type="DbModele.Module" Role="Module" Multiplicity="1" />
+        </Association>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="Postalcode" Type="String" Nullable="false" />
+          <Property Name="CreateAt" Type="String" Nullable="false" />
+          <Property Name="UpdateAt" Type="String" Nullable="false" />
+          <Property Name="DeleteAt" Type="String" Nullable="false" />
+          <NavigationProperty Name="Person_id" Relationship="DbModele.CityPerson" FromRole="City" ToRole="Person" />
+          <NavigationProperty Name="State_id" Relationship="DbModele.StateCity" FromRole="City" ToRole="State" />
+        </EntityType>
+        <Association Name="CityPerson">
+          <End Type="DbModele.City" Role="City" Multiplicity="1" />
+          <End Type="DbModele.Person" Role="Person" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="City">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Person">
+              <PropertyRef Name="CityId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="CreateAt" Type="String" Nullable="false" />
+          <Property Name="UpdateAt" Type="String" Nullable="false" />
+          <NavigationProperty Name="City_id" Relationship="DbModele.StateCity" FromRole="State" ToRole="City" />
+          <NavigationProperty Name="Countries_id" Relationship="DbModele.CountriesState" FromRole="State" ToRole="Countries" />
+          <Property Name="DeleteAt" Type="String" Nullable="false" />
+        </EntityType>
+        <Association Name="StateCity">
+          <End Type="DbModele.State" Role="State" Multiplicity="1" />
+          <End Type="DbModele.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Countries">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" />
+          <Property Name="CreateAt" Type="String" Nullable="false" />
+          <Property Name="UpdateAt" Type="String" Nullable="false" />
+          <Property Name="DeleteAt" Type="String" Nullable="false" />
+          <NavigationProperty Name="State_id" Relationship="DbModele.CountriesState" FromRole="Countries" ToRole="State" />
+        </EntityType>
+        <Association Name="CountriesState">
+          <End Type="DbModele.Countries" Role="Countries" Multiplicity="1" />
+          <End Type="DbModele.State" Role="State" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Countries">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="State">
+              <PropertyRef Name="CountriesId" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
